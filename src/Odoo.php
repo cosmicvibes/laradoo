@@ -202,6 +202,40 @@ class Odoo
 
 
     /**
+     * Set condition for search query
+     *
+     * @param string $field
+     * @param string $operator
+     * @param string $value
+     * @return $this
+     */
+    public function whereNull($field)
+    {
+        $new = [$field, '=', 'false'];
+
+        $this->condition[0][] = $new;
+
+        return $this;
+    }
+
+    /**
+     * Set condition for search query
+     *
+     * @param string $field
+     * @param string $operator
+     * @param string $value
+     * @return $this
+     */
+    public function whereNotNull($field)
+    {
+        $new = [$field, '=', 'true'];
+
+        $this->condition[0][] = $new;
+
+        return $this;
+    }
+
+    /**
      * Limit helps to only retrieve a subset of all matched records
      * second parameter, offset to start from that value.
      *
